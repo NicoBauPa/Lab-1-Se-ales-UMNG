@@ -39,15 +39,14 @@ time = np.arange(len(señal)) / fs
 
 - **señal:** Se utiliza esta función matriz donde cada columna representa un canal de la señal registrada. la expresion [:,0] extrae la primera columna, los valores iniciales y se multiplica por 0.5 reduciendo la amplitud a la mitad.
 
-- **fields:** Es un diccionario que contiene metadatos asociados con la señal, como la frecuencia de muestreo ( fs), nombres de los canales, unidades, entre otros.
+- **fs:** Es un diccionario que contiene metadatos asociados con la señal, como la frecuencia de muestreo ( fs), nombres de los canales, unidades, entre otros.
 
-### Cargar la señal EMG desde el archivo
+### Ajuste intervalo 
 ```
-record = wfdb.rdrecord('emg_neuropathy')
-señal = record.p_signal[:, 0] * 0.5  
-fs = record.fs * 0.5  
-time = np.arange(len(señal)) / fs  
-
+tiempo_limite = 8  # en segundos
+indice_limite = int(tiempo_limite * fs)
+señal = señal[:indice_limite]
+time = time[:indice_limite]
 ```
 
 ### Función para calcular la relación señal-ruido (SNR):
