@@ -19,11 +19,11 @@ from scipy.stats import norm.
 ```
 
 
--**wfdb** Es una libreria que permite trabajar con bases de datos, en este caso señales fisiologicas de PrysiNet.
+- **wfdb** Es una libreria que permite trabajar con bases de datos, en este caso señales fisiologicas de PrysiNet.
 Es ta libreria permite leer, escribir y analizar señales fisiologicas
--**Numpy** Esta librería es fundamental para en la programación poder utilizar sintaxis numericas en python, permitiendo arreglos multidimencionalesy operaciones matematicas
--**Matplotlib.pyplot(plt)** Se usa para graficar los datos
--**Scipy.stats.norm** Se usa para trabajar con distribuciones normales y ajustar curvas.
+- **Numpy** Esta librería es fundamental para en la programación poder utilizar sintaxis numericas en python, permitiendo arreglos multidimencionalesy operaciones matematicas
+- **Matplotlib.pyplot(plt)** Se usa para graficar los datos
+- **Scipy.stats.norm** Se usa para trabajar con distribuciones normales y ajustar curvas.
 
 **Función para calcular la relación señal-ruido (SNR):
 ´´´
@@ -33,21 +33,3 @@ def calcular_snr(señal, ruido):
     snr = 10 * np.log10(potencia_senal / potencia_ruido) 
     return snr
     ´´´
-
-Esta función calcula la relación señal-ruido (SNR) en decibeles. Se obtiene como:
-
- 
- 
- Explicación paso a paso:
-Calculamos la potencia de la señal →np.mean(señal ** 2)
-
-Eleva al cuadrado cada valor de la señal y calcula su promedio.
-Calculamos la potencia del ruido →np.mean(ruido ** 2)
-
-Hace lo mismo, pero con el ruido.
-Calculamos el SNR en decibeles →10 * np.log10(potencia_senal / potencia_ruido)
-
-Se usa el logaritmo en base 10 para expresar la relación en dB.
-    
-
-
