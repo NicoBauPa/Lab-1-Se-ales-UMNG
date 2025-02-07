@@ -70,8 +70,7 @@ plt.show()
 - **plt.grid()**: Se agrega una cuadrícula para mejorar la visualización.
 - **plt.legend()**: Se muestra la etiqueta de la señal.
 
-![image](https://github.com/user-attachments/assets/186bdc81-95a2-4c01-a113-342c6217779f)
-
+![image](https://github.com/user-attachments/assets/b59057c3-f08b-4302-abfe-4eb2bea0070d)
 
 #### Cálculo manual de la media 
 ```
