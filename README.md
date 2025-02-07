@@ -65,7 +65,7 @@ plt.legend()
 plt.show()
 
 ```
-- **plt.figure( figsize=(50,6))** Se crea una figura grande para visualizar la señal claramente.
+- **plt.figure( figsize=(12,6))** Se crea una figura grande para visualizar la señal claramente.
 - **plt.plot(time, señal)**: Se grafica la señal en función del tiempo.
 - **plt.grid()**: Se agrega una cuadrícula para mejorar la visualización.
 - **plt.legend()**: Se muestra la etiqueta de la señal.
