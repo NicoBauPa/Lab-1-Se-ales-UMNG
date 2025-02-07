@@ -184,8 +184,6 @@ def calcular_snr(señal , ruido):
     return snr
 
   ```
-![image](https://github.com/user-attachments/assets/c1884a7e-b40a-4940-a0fe-f45e812c0a8c)
-
 La Relación Señal-Ruido (SNR) se define como la razón entre la potencia de la señal y la potencia del ruido, expresada en decibeles (dB).
 
 Calcula la potencia media de la señal (potencia_senal).
@@ -255,5 +253,5 @@ El análisis estadístico permitió caracterizar la señal EMG, evidenciando su 
 La introducción de distintos tipos de ruido permitió evaluar su impacto en la calidad de la señal. Esto destaca la importancia del cálculo del SNR como herramienta para medir la degradación de la señal y la necesidad de aplicar filtros adecuados según el tipo de ruido presente
 
 ## Referencias:
-![Uploading image.png…]()
+[Nombre de la referencia](https://ejemplo.com)
 
