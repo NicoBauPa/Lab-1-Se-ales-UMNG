@@ -264,5 +264,8 @@ El análisis estadístico permitió caracterizar la señal EMG, evidenciando su 
 La introducción de distintos tipos de ruido permitió evaluar su impacto en la calidad de la señal. Esto destaca la importancia del cálculo del SNR como herramienta para medir la degradación de la señal y la necesidad de aplicar filtros adecuados según el tipo de ruido presente
 
 ## Referencias:
-[Nombre de la referencia](https://ejemplo.com)
+Procesando señales electrofisiológicas usando Python - YouTube. (2020, 17 de diciembre) — PyDay Chile 2020 Procesando señales electrofisiológicas usando Python. Faviconyoutube.com
+What is Signal to Noise Ratio and How to calculate it? (2024, 17 julio). Advanced PCB Design Blog | Cadence. https://resources-pcb-cadence-com.translate.goog/blog/2020-what-is-signal-to-noise-ratio-and-how-to-calculate-it?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc
+Goyal B, Dogra A, Agrawal S, Sohi BS Problemas de ruido que prevalecen en varios tipos de imágenes médicas. Biomed Pharmacol J 2018;11(3). Disponible en: http://biomedpharmajournal.org/?p=22526
+Medidas de tendencia central y dispersión. (s. f.). Medwave. https://www.medwave.cl/series/MBE04/4934.html
 
