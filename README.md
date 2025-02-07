@@ -121,3 +121,6 @@ print(f"Coeficiente de variación: {coef:.2f} %")
 ```
 Se imprimen, organiza y presenta cálculos calculados de forma legible, permitiendo verificar que los métodos utilizados para calcular la media, la desviación estándar y el coeficiente de variación sean correctos.
 
+![image](https://github.com/user-attachments/assets/74fc8a78-739d-4d6d-b40d-872377b125fe)
+
+
