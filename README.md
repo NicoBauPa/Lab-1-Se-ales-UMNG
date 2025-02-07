@@ -123,4 +123,32 @@ Se imprimen, organiza y presenta cálculos calculados de forma legible, permitie
 
 ![image](https://github.com/user-attachments/assets/74fc8a78-739d-4d6d-b40d-872377b125fe)
 
+#### Histograma con PDF ajustada
+```
 
+plt.figure(figsize=(12, 6))
+plt.hist(señal, bins=50, density=True, alpha=0.75, color='blue', label="Histograma")
+```
+
+Un histograma muestra la distribución de los valores de la señal. En este caso, se usa para visualizar cómo están distribuidos los valores de la señal EMG y compararlos con una curva de distribución normal.
+
+#### Ajuste de una distribución normal (PDF)
+```
+mu, sigma = norm.fit(señal)
+pdf_x = np.linspace(min(señal), max(señal), 1000)
+pdf_y = norm.pdf(pdf_x, mu, sigma)
+factor_escala = 8.2 / max(pdf_y)
+pdf_y *= factor_escala
+plt.plot(pdf_x, pdf_y, 'k-', label=f"Curva G")
+
+plt.title("Histograma de la Señal EMG")
+plt.xlabel("Amplitud")
+plt.ylabel("Frecuencia Normalizada")
+plt.legend()
+plt.grid()
+plt.show()
+
+```
+Se ajusta una distribución normal a los datos de una señal EMG y la grafica sobre un histograma. Primero, estima la media y la desviación estándar de la señal, luego genera y escala una curva normal, y finalmente la grafica junto con las barras del histograma para analizar cómo se distribuyen los valores de la señal.
+
+![image](https://github.com/user-attachments/assets/11efb074-a446-4bcc-b2af-f467562bbe2b)
