@@ -174,6 +174,18 @@ Este código calcula y grafica la Función de Probabilidad Acumulativa (CDF) de 
 Se configura la figura con plt.figure(figsize=(10,6)) y se grafica la CDF con plt.plot(sorted_data, cdf, label="CDF (Empírica)"), donde el eje X representa la amplitud de la señal y el Y la probabilidad acumulada. Finalmente, se agregan título, etiquetas, cuadrícula y leyenda para mejorar la visualización, mostrando cómo se distribuyen los valores de la señal.
 
 ![image](https://github.com/user-attachments/assets/0f148b52-933c-40be-af79-2c92538e3457)
+### Que es el SNR?
+
+El SNR (Signal-to-Noise Ratio) es una medida que nos dice qué tan fuerte es una señal en comparación con el ruido que la acompaña. En términos simples, es como tratar de escuchar a alguien hablar en una fiesta ruidosa: si la voz es clara y fuerte en comparación con el ruido de fondo, el SNR es alto; si apenas se distingue lo que dice entre todo el ruido, el SNR es bajo.
+
+### ¿Cómo se calcula?
+Se obtiene con la siguiente fórmula:
+
+![Imagen de WhatsApp 2025-02-06 a las 22 56 18_28fd9c72](https://github.com/user-attachments/assets/2738b8e3-aae9-4fc0-9b87-0fdeb704fe08)
+
+
+Esto significa que tomamos la potencia promedio de la señal (su energía) y la comparamos con la potencia promedio del ruido. Luego, aplicamos un logaritmo para expresarlo en decibeles (dB), que es una escala más útil para interpretar los valores.
+
 ### Función para calcular SNR
 
 ```
@@ -184,11 +196,10 @@ def calcular_snr(señal , ruido):
     return snr
 
   ```
-La Relación Señal-Ruido (SNR) se define como la razón entre la potencia de la señal y la potencia del ruido, expresada en decibeles (dB).
 
-Calcula la potencia media de la señal (potencia_senal).
-Calcula la potencia media del ruido (potencia_ruido).
-Calcula el SNR en decibeles (dB) con la fórmula
+- Calcula la potencia media de la señal (potencia_senal).
+- Calcula la potencia media del ruido (potencia_ruido).
+- Calcula el SNR en decibeles (dB) con la fórmula
 
 
 #### Función para agregar ruido 
