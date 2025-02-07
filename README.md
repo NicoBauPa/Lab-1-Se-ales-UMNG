@@ -36,6 +36,18 @@ def calcular_snr(señal, ruido):
 
 Esta función calcula la relación señal-ruido (SNR) en decibeles. Se obtiene como:
 
+ 
+ 
+ Explicación paso a paso:
+Calculamos la potencia de la señal →np.mean(señal ** 2)
+
+Eleva al cuadrado cada valor de la señal y calcula su promedio.
+Calculamos la potencia del ruido →np.mean(ruido ** 2)
+
+Hace lo mismo, pero con el ruido.
+Calculamos el SNR en decibeles →10 * np.log10(potencia_senal / potencia_ruido)
+
+Se usa el logaritmo en base 10 para expresar la relación en dB.
     
 
 
