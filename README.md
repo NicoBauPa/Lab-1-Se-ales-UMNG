@@ -22,4 +22,6 @@ from scipy.stats import norm.
 **wfdb** Es una libreria que permite trabajar con bases de datos, en este caso señales fisiologicas de PrysiNet.
 Esta libreria permite leer, escribir y analizar señales fisiologicas
 **Numpy** Esta librería es fundamental para en la programación poder utilizar sintaxis numericas en python, permitiendo arreglos multidimencionalesy operaciones matematicas
+**Matplotlib.pyplot(plt)** Se usa para graficar los datos
+**Scipy.stats.norm** Se usa para trabajar con distribuciones normales y ajustar curvas.
 
