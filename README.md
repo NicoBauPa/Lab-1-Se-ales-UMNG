@@ -25,11 +25,38 @@ Es ta libreria permite leer, escribir y analizar señales fisiologicas
 - **Matplotlib.pyplot(plt)** Se usa para graficar los datos
 - **Scipy.stats.norm** Se usa para trabajar con distribuciones normales y ajustar curvas.
 
-**Función para calcular la relación señal-ruido (SNR):
-´´´
+Éstas librerias son fundamentales porque sin ellas tendriamos muchos errores al momento de usar operciones matematicas y correr el codigo.  
+### Cargar la señal EMG desde el archivo
+```
+record = wfdb.rdrecord('emg_neuropathy')
+señal = record.p_signal[:, 0] * 0.5  
+fs = record.fs * 0.5  
+time = np.arange(len(señal)) / fs  
+
+```
+
+- **record:** Esta funcion especifica la ruta del archivo que contiene la señal EMG de la libreria wfdb lo que permite leer el archivo con los datos llamada 'emg_neuropathy.
+
+- **señal:** Se utiliza esta función matriz donde cada columna representa un canal de la señal registrada. la expresion [:,0] extrae la primera columna, los valores iniciales y se multiplica por 0.5 reduciendo la amplitud a la mitad.
+
+- **fields:** Es un diccionario que contiene metadatos asociados con la señal, como la frecuencia de muestreo ( fs), nombres de los canales, unidades, entre otros.
+
+### Cargar la señal EMG desde el archivo
+```
+record = wfdb.rdrecord('emg_neuropathy')
+señal = record.p_signal[:, 0] * 0.5  
+fs = record.fs * 0.5  
+time = np.arange(len(señal)) / fs  
+
+```
+
+### Función para calcular la relación señal-ruido (SNR):
+
+```
 def calcular_snr(señal, ruido):
     potencia_senal = np.mean(señal ** 2)  
     potencia_ruido = np.mean(ruido ** 2)  
     snr = 10 * np.log10(potencia_senal / potencia_ruido) 
     return snr
-    ´´´
+   
+```
