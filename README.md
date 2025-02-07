@@ -72,7 +72,7 @@ plt.show()
 
 ![image](https://github.com/user-attachments/assets/b59057c3-f08b-4302-abfe-4eb2bea0070d)
 
-#### Cálculo manual de la media 
+#### Cálculo: 
 ```
 suma = 0
 for x in señal:
@@ -81,7 +81,7 @@ media = suma / len(señal)
 ```
 Aquí se calcula manualmente la media (promedio) de la señal.
 
-#### Cálculo manual de la desviación estándar 
+#### Cálculo de desviación estándar 
 ```
 suma = 0
 for x in señal:
@@ -119,7 +119,7 @@ print(f"Desviación estándar: {desviacion:.4f}")
 print(f"Coeficiente de variación: {coef:.2f} %")
 
 ```
-Se imprimen, organiza y presenta cálculos calculados de forma legible, permitiendo verificar que los métodos utilizados para calcular la media, la desviación estándar y el coeficiente de variación sean correctos.
+Se imprimen, organiza y presenta cálculos de forma legible, permitiendo verificar que los métodos utilizados para calcular la media, la desviación estándar y el coeficiente de variación sean correctos.
 
 ![image](https://github.com/user-attachments/assets/74fc8a78-739d-4d6d-b40d-872377b125fe)
 
