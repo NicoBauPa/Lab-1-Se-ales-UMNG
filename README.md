@@ -70,6 +70,9 @@ plt.show()
 - **plt.grid()**: Se agrega una cuadrícula para mejorar la visualización.
 - **plt.legend()**: Se muestra la etiqueta de la señal.
 
+![image](https://github.com/user-attachments/assets/186bdc81-95a2-4c01-a113-342c6217779f)
+
+
 #### Cálculo manual de la media 
 ```
 suma = 0
@@ -102,3 +105,20 @@ coef = (desviacion / media) * 100
 
 ```
 Aquí se usan las funciones de numpypara hacer lo mismo de forma más eficiente.
+
+#### Mostrar resultados
+```
+print("\nMDC")
+print("Calculos:")
+print(f"Media: {media:.4f}")
+print(f"Desviación estándar: {desviacion:.4f}")
+print(f"Coeficiente de variación: {coef:.2f} %")
+
+print("\nCalculos con funciones:")
+print(f"Media: {media:.4f}")
+print(f"Desviación estándar: {desviacion:.4f}")
+print(f"Coeficiente de variación: {coef:.2f} %")
+
+```
+Se imprimen, organiza y presenta cálculos calculados de forma legible, permitiendo verificar que los métodos utilizados para calcular la media, la desviación estándar y el coeficiente de variación sean correctos.
+
