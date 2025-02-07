@@ -173,6 +173,8 @@ Este código calcula y grafica la Función de Probabilidad Acumulativa (CDF) de 
 
 Se configura la figura con plt.figure(figsize=(10,6)) y se grafica la CDF con plt.plot(sorted_data, cdf, label="CDF (Empírica)"), donde el eje X representa la amplitud de la señal y el Y la probabilidad acumulada. Finalmente, se agregan título, etiquetas, cuadrícula y leyenda para mejorar la visualización, mostrando cómo se distribuyen los valores de la señal.
 
+![image](https://github.com/user-attachments/assets/0f148b52-933c-40be-af79-2c92538e3457)
+
 #### Función para agregar ruido y calcular SNR
 
 ```
@@ -193,3 +195,43 @@ def agregar_ruido(señal, tipo="gaussiano", intensidad=0.05, frecuencia=50, porc
   ```
 
 Esta función agrega ruido a una señal y calcula su relación señal-ruido (SNR). Dependiendo del tipo de ruido seleccionado, puede ser: gaussiano, generado con una distribución normal; impulsivo, donde se insertan valores aleatorios en ciertos puntos; o artefacto, una señal sinusoidal de una frecuencia específica. Si el tipo no es válido, se genera un error. Finalmente, la señal modificada y su SNR se retornan, permitiendo evaluar el impacto del ruido en la señal original.
+
+#### Contaminación de la señal
+```
+senal_gaussiana, snr_gaussiano = agregar_ruido(señal, tipo="gaussiano")
+senal_impulso, snr_impulso = agregar_ruido(señal, tipo="impulso")
+senal_artefacto, snr_artefacto = agregar_ruido(señal, tipo="artefacto", time=time)
+
+```
+#### Mostrar valores de SNR
+```
+print("\nRelación Señal-Ruido (SNR)")
+for tipo, snr in zip("Gaussiano", "Impulso", "Artefacto"], [snr_gaussiano, snr_impulso, snr_artefacto):
+    print(f"SNR con ruido {tipo.lower()}: {snr:.2f} dB")
+```
+#### Graficar señales con ruido en gráficos separados junto con la señal original
+```
+ruidos = ("Ruido Gaussiano", senal_gaussiana, snr_gaussiano, "red"),
+          ("Ruido Impulso", senal_impulso, snr_impulso, "green"),
+          ("Ruido Artefacto", senal_artefacto, snr_artefacto, "yellow")
+```
+
+Aquí se introduce tres tipos de ruido en una señal original (gaussiano, impulsivo y artefacto) mediante la función agregar_ruido(), obteniendo tanto la señal contaminada como su relación señal-ruido (SNR) en cada caso.
+
+Luego, imprime los valores de SNR en decibeles (dB), permitiendo comparar cuánto afecta cada tipo de ruido a la señal. Finalmente, organiza las señales modificadas en una lista con su nombre, SNR y color asignado, lo que facilita su posterior graficación para visualizar el impacto de cada ruido en la señal original.
+
+![image](https://github.com/user-attachments/assets/141a0453-bad7-4a31-9629-31f9203d184c)
+
+![image](https://github.com/user-attachments/assets/62237beb-cb76-4680-9044-671831e41df1)
+
+
+![image](https://github.com/user-attachments/assets/020917bd-979a-45c3-ae90-cfad52509a4c)
+
+## Análisis de resultados.
+
+Se procesó una señal EMG de una neuropatía, obteniendo sus estadísticos descriptivos como la media, desviación estándar y coeficiente de variación, los cuales permitieron describir su comportamiento. El histograma reveló que la señal sigue una distribución normal, mientras que la función de probabilidad mostró cómo se distribuyen los valores de la señal y permitió analizar la probabilidad de encontrar valores en rangos específicos.
+Posteriormente, se añadió ruido gaussiano, de impulso y tipo artefacto, evaluando su alteración mediante el cálculo del SNR.
+
+## Conclusión. 
+El análisis estadístico permitió caracterizar la señal EMG, evidenciando su variabilidad y comportamiento mediante la media, desviación estándar y coeficiente de variación. La distribución aproximadamente normal.
+La introducción de distintos tipos de ruido permitió evaluar su impacto en la calidad de la señal. Esto destaca la importancia del cálculo del SNR como herramienta para medir la degradación de la señal y la necesidad de aplicar filtros adecuados según el tipo de ruido presente
