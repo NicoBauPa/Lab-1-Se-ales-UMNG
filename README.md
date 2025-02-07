@@ -220,7 +220,32 @@ def agregar_ruido(señal, tipo="gaussiano", intensidad=0.05, frecuencia=50, porc
     return señal + ruido, calcular_snr(señal, ruido)
 
   ```
+Parámetros:
 
+- tipo: Tipo de ruido a añadir ("gaussiano", "impulso", "artefacto").
+- intensidad: Nivel de ruido en los casos de gaussiano y artefacto.
+- frecuencia: Frecuencia del ruido de artefacto (50 Hz por defecto).
+- porcentaje: Proporción de muestras con ruido de impulso.
+- time: Vector de tiempo (necesario para el ruido de artefacto).
+
+  Ruido Gaussiano:
+  
+Se genera ruido blanco gaussiano con np.random.normal(), de media 0 y desviación intensidad.
+Este tipo de ruido es similar al ruido térmico en señales fisiológicas.
+
+Ruido de impulsos:
+
+Este ruido simula picos aleatorios en la señal:
+
+- Se crea un array de ceros del mismo tamaño que la señal.
+- Se calcula el número de impulsos a introducir (num_impulsos).
+- Se generan posiciones aleatorias (indices).
+- Se asignan valores positivos o negativos (±0.5 * max(señal)) en esas posiciones.
+
+  Ruido de artefacto (interferencia senoidal):
+  Se crea un ruido senoidal con frecuencia frecuencia (50 Hz por defecto).
+
+  
 Esta función agrega ruido a una señal y calcula su relación señal-ruido (SNR). Dependiendo del tipo de ruido seleccionado, puede ser: gaussiano, generado con una distribución normal; impulsivo, donde se insertan valores aleatorios en ciertos puntos; o artefacto, una señal sinusoidal de una frecuencia específica. Si el tipo no es válido, se genera un error. Finalmente, la señal modificada y su SNR se retornan, permitiendo evaluar el impacto del ruido en la señal original.
 
 #### Contaminación de la señal
