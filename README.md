@@ -152,3 +152,44 @@ plt.show()
 Se ajusta una distribución normal a los datos de una señal EMG y la grafica sobre un histograma. Primero, estima la media y la desviación estándar de la señal, luego genera y escala una curva normal, y finalmente la grafica junto con las barras del histograma para analizar cómo se distribuyen los valores de la señal.
 
 ![image](https://github.com/user-attachments/assets/11efb074-a446-4bcc-b2af-f467562bbe2b)
+
+#### Función de probabilidad acumulativa (CDF)
+```
+sorted_data = np.sort(señal)
+cdf = np.arange(1, len(sorted_data) + 1) / len(sorted_data)
+
+plt.figure(figsize=(10, 6))
+plt.plot(sorted_data, cdf, label="CDF (Empírica)")
+plt.title("Función de Probabilidad Acumulativa (CDF)")
+plt.xlabel("Amplitud")
+plt.ylabel("Probabilidad acumulada")
+plt.grid()
+plt.legend()
+plt.show()
+
+```
+
+Este código calcula y grafica la Función de Probabilidad Acumulativa (CDF) de una señal. Primero, ordena los datos con np.sort(señal), luego calcula la CDF dividiendo los índices acumulados por la cantidad total de datos, asegurando valores entre 0 y 1.
+
+Se configura la figura con plt.figure(figsize=(10,6)) y se grafica la CDF con plt.plot(sorted_data, cdf, label="CDF (Empírica)"), donde el eje X representa la amplitud de la señal y el Y la probabilidad acumulada. Finalmente, se agregan título, etiquetas, cuadrícula y leyenda para mejorar la visualización, mostrando cómo se distribuyen los valores de la señal.
+
+#### Función para agregar ruido y calcular SNR
+
+```
+def agregar_ruido(señal, tipo="gaussiano", intensidad=0.05, frecuencia=50, porcentaje=0.05, time=None):
+    if tipo == "gaussiano":
+        ruido = np.random.normal(0, intensidad, len(señal))
+    elif tipo == "impulso":
+        ruido = np.zeros(len(señal))
+        num_impulsos = int(porcentaje * len(señal))
+        indices = np.random.randint(0, len(señal), num_impulsos)
+        ruido[indices] = np.random.choice([-1, 1], size=num_impulsos) * np.max(señal) * 0.5
+    elif tipo == "artefacto" and time is not None:
+        ruido = intensidad * np.sin(2 * np.pi * frecuencia * time)
+    else:
+        raise ValueError("Tipo de ruido no válido")
+    return señal + ruido, calcular_snr(señal, ruido)
+
+  ```
+
+Esta función agrega ruido a una señal y calcula su relación señal-ruido (SNR). Dependiendo del tipo de ruido seleccionado, puede ser: gaussiano, generado con una distribución normal; impulsivo, donde se insertan valores aleatorios en ciertos puntos; o artefacto, una señal sinusoidal de una frecuencia específica. Si el tipo no es válido, se genera un error. Finalmente, la señal modificada y su SNR se retornan, permitiendo evaluar el impacto del ruido en la señal original.
