@@ -228,7 +228,7 @@ Parámetros:
 - porcentaje: Proporción de muestras con ruido de impulso.
 - time: Vector de tiempo (necesario para el ruido de artefacto).
 
-  Ruido Gaussiano:
+Ruido Gaussiano:
   
 Se genera ruido blanco gaussiano con np.random.normal(), de media 0 y desviación intensidad.
 Este tipo de ruido es similar al ruido térmico en señales fisiológicas.
@@ -242,7 +242,7 @@ Este ruido simula picos aleatorios en la señal:
 - Se generan posiciones aleatorias (indices).
 - Se asignan valores positivos o negativos (0.5 * max(señal)) en esas posiciones.
 
-  Ruido de artefacto (interferencia senoidal):
+Ruido de artefacto (interferencia senoidal):
   
  - Se crea un ruido senoidal con frecuencia frecuencia (50 Hz).
 
