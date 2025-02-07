@@ -25,3 +25,17 @@ Es ta libreria permite leer, escribir y analizar señales fisiologicas
 -**Matplotlib.pyplot(plt)** Se usa para graficar los datos
 -**Scipy.stats.norm** Se usa para trabajar con distribuciones normales y ajustar curvas.
 
+**Función para calcular la relación señal-ruido (SNR):
+´´´
+def calcular_snr(señal, ruido):
+    potencia_senal = np.mean(señal ** 2)  
+    potencia_ruido = np.mean(ruido ** 2)  
+    snr = 10 * np.log10(potencia_senal / potencia_ruido) 
+    return snr
+    ´´´
+
+Esta función calcula la relación señal-ruido (SNR) en decibeles. Se obtiene como:
+
+    
+
+
