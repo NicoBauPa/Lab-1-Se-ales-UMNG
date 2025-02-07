@@ -174,7 +174,23 @@ Este código calcula y grafica la Función de Probabilidad Acumulativa (CDF) de 
 Se configura la figura con plt.figure(figsize=(10,6)) y se grafica la CDF con plt.plot(sorted_data, cdf, label="CDF (Empírica)"), donde el eje X representa la amplitud de la señal y el Y la probabilidad acumulada. Finalmente, se agregan título, etiquetas, cuadrícula y leyenda para mejorar la visualización, mostrando cómo se distribuyen los valores de la señal.
 
 ![image](https://github.com/user-attachments/assets/0f148b52-933c-40be-af79-2c92538e3457)
+### Función para calcular SNR
 
+```
+def calcular_snr(señal , ruido):
+    potencia_senal = np.mean(señal ** 2)
+    potencia_ruido = np.mean(ruido ** 2)
+    snr = 10 * np.log10(potencia_senal / potencia_ruido)
+    return snr
+
+  ```
+La Relación Señal-Ruido (SNR) se define como la razón entre la potencia de la señal y la potencia del ruido, expresada en decibeles (dB).
+
+Calcula la potencia media de la señal (potencia_senal).
+Calcula la potencia media del ruido (potencia_ruido).
+Calcula el SNR en decibeles (dB) con la fórmula
+
+# Función para agregar ruido y calcular SNR
 #### Función para agregar ruido y calcular SNR
 
 ```
