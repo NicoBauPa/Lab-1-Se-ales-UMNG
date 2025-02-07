@@ -190,8 +190,8 @@ Calcula la potencia media de la señal (potencia_senal).
 Calcula la potencia media del ruido (potencia_ruido).
 Calcula el SNR en decibeles (dB) con la fórmula
 
-# Función para agregar ruido y calcular SNR
-#### Función para agregar ruido y calcular SNR
+
+#### Función para agregar ruido 
 
 ```
 def agregar_ruido(señal, tipo="gaussiano", intensidad=0.05, frecuencia=50, porcentaje=0.05, time=None):
