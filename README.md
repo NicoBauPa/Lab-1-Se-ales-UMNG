@@ -26,7 +26,8 @@ Es ta libreria permite leer, escribir y analizar señales fisiologicas
 - **Scipy.stats.norm** Se usa para trabajar con distribuciones normales y ajustar curvas.
 
 Éstas librerias son fundamentales porque sin ellas tendriamos muchos errores al momento de usar operciones matematicas y correr el codigo.  
-### Cargar la señal EMG desde el archivo
+
+#### Cargar la señal EMG desde el archivo
 ```
 record = wfdb.rdrecord('emg_neuropathy')
 señal = record.p_signal[:, 0] * 0.5  
@@ -41,21 +42,63 @@ time = np.arange(len(señal)) / fs
 
 - **fs:** Es un diccionario que contiene metadatos asociados con la señal, como la frecuencia de muestreo ( fs), nombres de los canales, unidades, entre otros.
 
-### Ajuste intervalo 
+#### Ajuste intervalo 
 ```
 tiempo_limite = 8  # en segundos
 indice_limite = int(tiempo_limite * fs)
 señal = señal[:indice_limite]
 time = time[:indice_limite]
 ```
-
-### Función para calcular la relación señal-ruido (SNR):
+- **tiempo_limite:** esta funcion permite tomar in intervalo de n segundos para establecer la duracion maxima de la señal que se tomará
+- **indice_limite:** la funcion fs representa la frecuencia de muestreo en hz (muestras por segundo multiplicando el tiempo limite por fs y obteniendo la cantidad total de muestras.
+  
+#### Graficar la señal original
 
 ```
-def calcular_snr(señal, ruido):
-    potencia_senal = np.mean(señal ** 2)  
-    potencia_ruido = np.mean(ruido ** 2)  
-    snr = 10 * np.log10(potencia_senal / potencia_ruido) 
-    return snr
-   
+plt.figure(figsize=(12, 6))
+plt.plot(time, señal, label="Señal EMG Neuropathy", color='blue')
+plt.title("Señal EMG Neuropathy")
+plt.xlabel("Tiempo (s)")
+plt.ylabel("Voltaje (mV)")
+plt.grid()
+plt.legend()
+plt.show()
+
 ```
+- **plt.figure( figsize=(50,6))** Se crea una figura grande para visualizar la señal claramente.
+- **plt.plot(time, señal)**: Se grafica la señal en función del tiempo.
+- **plt.grid()**: Se agrega una cuadrícula para mejorar la visualización.
+- **plt.legend()**: Se muestra la etiqueta de la señal.
+
+#### Cálculo manual de la media 
+```
+suma = 0
+for x in señal:
+    suma += x
+media = suma / len(señal)
+```
+Aquí se calcula manualmente la media (promedio) de la señal.
+
+#### Cálculo manual de la desviación estándar 
+```
+suma = 0
+for x in señal:
+    suma += (x - media) ** 2
+desviacion = (suma / len(señal))
+```
+Se calcula manualmente la desviación estándar
+
+#### Cálculo del coeficiente de variación
+```
+coef = (desviacion / media) * 100
+```
+Se calcula el coeficiente de variación , que mide la dispersión en porcentaje.
+
+#### Usando funciones predefinidas
+```
+media = np.mean(señal)
+desviacion = np.std(señal)
+coef = (desviacion / media) * 100
+
+```
+Aquí se usan las funciones de numpypara hacer lo mismo de forma más eficiente.
